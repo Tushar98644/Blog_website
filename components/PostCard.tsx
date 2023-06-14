@@ -1,9 +1,13 @@
-import React from 'react'
+interface postcardProps {
+    title: string;
+    excerpt: string;
+}
 
-const PostCard = () => {
+const PostCard = ({title,excerpt}:postcardProps) => {
   return (
     <div>
-      post card
+        <h1>{title}</h1>
+        <p>{excerpt}</p>
     </div>
   )
 }

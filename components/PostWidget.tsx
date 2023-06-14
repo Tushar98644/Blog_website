@@ -3,7 +3,7 @@ import React from 'react'
 const PostWidget = () => {
   return (
     <div>
-      post widget
+        <h1>PostWidget</h1>
     </div>
   )
 }

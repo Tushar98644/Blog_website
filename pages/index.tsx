@@ -1,3 +1,5 @@
+import { PostCard,PostWidget,categories } from "@/components";
+
 const Homepage = () => {
   return (
     <div className='text-5xl'>
