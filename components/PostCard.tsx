@@ -1,13 +1,13 @@
-interface postcardProps {
-    title: string;
-    excerpt: string;
-}
+// interface postcardProps {
+//     title: string;
+//     excerpt: string;
+// }
 
-const PostCard = ({title,excerpt}:postcardProps) => {
+const PostCard = ({post}) => {
   return (
     <div>
-        <h1>{title}</h1>
-        <p>{excerpt}</p>
+        <h1>{post.title}</h1>
+        <p>{post.excerpt}</p>
     </div>
   )
 }
