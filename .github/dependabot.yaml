@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    target-branch: "main"
+    versioning-strategy: "auto"
+    allow:
+      - dependency-type: "all"
+    package_manager: "pnpm"
