@@ -1,4 +1,4 @@
-import { PostCard, PostWidget, categories } from "@/components";
+import { PostCard, PostWidget, categories, Layout } from "@/components";
 import Categories from "@/components/Categories";
 import Head from "next/head";
 
@@ -18,22 +18,22 @@ const Homepage = () => {
     },
   ];
   return (
-    <div className='container mx-auto mb-8'>
-      <Head>
-        <title>Homepage</title>
-      </Head>
-      <div className='grid grid-cols-12 gap-4'>
-        <div className='lg:col-span-8 col-span-1'>
-          {posts.map((post, index) => (
-            <PostCard key={post.id} post={post} />
-          ))}
-        </div>
-        <div className='lg:col-span-4 col-span-1'>
-          <PostWidget />
-          <Categories/>
+      <div className='container mx-auto mb-8'>
+        <Head>
+          <title>Homepage</title>
+        </Head>
+        <div className='grid grid-cols-12 gap-4'>
+          <div className='lg:col-span-8 col-span-1'>
+            {posts.map((post, index) => (
+              <PostCard key={post.id} title={post.title} excerpt={post.excerpt} />
+            ))}
           </div>
+          <div className='lg:col-span-4 col-span-1'>
+            <PostWidget />
+            <Categories />
+          </div>
+        </div>
       </div>
-    </div>
   );
 }
 
