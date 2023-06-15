@@ -19,3 +19,7 @@ jobs:
             const message = `Hello! Thank you for submitting a pull request!`;
             github.rest.issues.createComment({
               owner: context.repo.owner```
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: message
+            });
