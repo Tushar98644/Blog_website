@@ -1,0 +1,21 @@
+name: Greet on PR
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Leave a comment
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const message = `Hello! Thank you for submitting a pull request!`;
+            github.rest.issues.createComment({
+              owner: context.repo.owner```
