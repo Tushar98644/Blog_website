@@ -1,9 +1,10 @@
 name: Greet on PR
 
 on:
+  push:
+    branches: [ main ]
   pull_request:
     types: [opened, synchronize, reopened]
-  workflow_dispatch:
 
 jobs:
   greet:
@@ -14,31 +15,11 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { owner, repo } = context.repo;
+            const prNumber = context.payload.pull_request.number;
             const message = `Hello! Thank you for submitting a pull request!`;
-
-            if (context.eventName === 'workflow_dispatch') {
-              const prs = await github.paginate(
-                github.rest.pulls.list,
-                { owner, repo, state: 'open' }
-              );
-              for (const pr of prs) {
-                await github.rest.issues.createComment({
-                  owner,
-                  repo,
-                  issue_number: pr.number,
-                  body: message
-                });
-              }
-            } else {
-              const pr = context.payload.pull_request;
-              if (pr) {
-                const prNumber = pr.number;
-                await github.rest.issues.createComment({
-                  owner,
-                  repo,
-                  issue_number: prNumber,
-                  body: message
-                });
-              }
-            }
+            github.rest.issues.createComment({
+              owner: context.repo.owner```
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: message
+            });
