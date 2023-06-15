@@ -1,13 +1,16 @@
-interface postcardProps {
-    title: string;
-    excerpt: string;
-}
+import Link from "next/link";
 
-const PostCard = ({title,excerpt}:postcardProps) => {
+// interface postcardProps {
+//     title: string;
+//     excerpt: string;
+// }
+
+const PostCard = ({post}) => {
+  console.log(post);
   return (
     <div>
-        <h1>{title}</h1>
-        <p>{excerpt}</p>
+        <h1>{post.title}</h1>
+        <p>{post.excerpt}</p>
     </div>
   )
 }
