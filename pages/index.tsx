@@ -6,24 +6,27 @@ import { useEffect } from "react";
 
 const Homepage = ({ posts }) => {
   return (
-    <div className='container mx-auto mb-8'>
+    <>
       <Head>
         <title>Homepage</title>
       </Head>
-      <div className='grid grid-cols-12 gap-4'>
-        <div className='lg:col-span-8 col-span-1'>
-          {posts?.map((post) => (
+      <div className="flex flex-row w-full p-4 gap-4">
+        <div className="flex flex-col flex-1 gap-2">
+          {/* {posts?.map((post) => (
             <PostCard key={post.id} post={post.node} />
-          ))}
+          ))} */} 
+               
+
         </div>
-        <div className='lg:col-span-4 col-span-1'>
+        <div className="flex flex-col flex-none w-1/3 gap-1">
           <PostWidget />
           <Categories name="tushar" />
         </div>
       </div>
-    </div>
+    </>
   );
-}
+};
+
 
 export async function getStaticProps() {
   const posts = (await getPosts()) || [];

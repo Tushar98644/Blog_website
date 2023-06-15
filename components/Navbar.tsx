@@ -18,7 +18,7 @@ const categories = [
 
 const Navbar = () => {
     return (
-        <div className="flex flex-row gap-[5vw] p-[4vw] pb-0 border-b border-blue-400">
+        <div className="flex flex-row gap-[5vw] p-[4vw] pb-0 border-b border-blue-400 mb-10">
             <div className="flex-1 ml-12 justify-center items-center text-center ">
               <Link href='/'>
                 <span className="text-white text-left text-5xl font-bold animate-pulse">GraphCMS</span>
