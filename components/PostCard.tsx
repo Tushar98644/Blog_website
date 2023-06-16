@@ -43,7 +43,7 @@ const PostCard = ({ post }) => {
     //     </Link>
     //   </div>
     // </div>
-    <div className="flex flex-col text-white ml-[10vw] mr-[10vw] border border-white rounded-lg bg-white pb-8 hover:scale-105 ease-in-out gap-1 transition duration-450">
+    <div className="flex flex-col text-white bg-white ml-[10vw] mr-[10vw] border border-white rounded-lg pb-8 hover:scale-105 ease-in-out gap-1 transition duration-450">
       <div className="flex flex-col rounded p-6">
         <img src={post.featuredImage.url} alt="" className="h-72 w-full" />
       </div>
