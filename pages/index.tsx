@@ -11,16 +11,14 @@ const Homepage = ({ posts }) => {
         <title>Homepage</title>
       </Head>
       <div className="flex flex-row w-full p-4 gap-4">
-        <div className="flex flex-col flex-1 gap-2">
-          {/* {posts?.map((post) => (
+        <div className="flex flex-col flex-1 gap-20">
+           {posts?.map((post) => (
             <PostCard key={post.id} post={post.node} />
-          ))} */} 
-               
-
+          ))}  
         </div>
         <div className="flex flex-col flex-none w-1/3 gap-1">
           <PostWidget />
-          <Categories name="tushar" />
+          <Categories name="tushar"/>
         </div>
       </div>
     </>
