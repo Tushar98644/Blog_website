@@ -1,11 +1,11 @@
-import Link from "next/link";
+import { getRecentPosts } from "@/services";
 
-const Categories = ({ name}: { name: string }) => {
-    return (
+const Categories = () => {
+    return ( 
         <div>
-                <h1>{name}</h1>
+            categories
         </div>
-    );
+     );
 }
-
+ 
 export default Categories;

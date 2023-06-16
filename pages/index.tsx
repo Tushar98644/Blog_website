@@ -1,6 +1,6 @@
 import { PostCard, PostWidget, categories, Layout } from "@/components";
 import Categories from "@/components/Categories";
-import { getPosts } from "@/services";
+import { getPosts, getRecentPosts } from "@/services";
 import Head from "next/head";
 import { useEffect } from "react";
 
@@ -17,8 +17,8 @@ const Homepage = ({ posts }) => {
           ))}  
         </div>
         <div className="flex flex-col flex-none w-1/3 gap-1">
-          <PostWidget />
-          <Categories name="tushar"/>
+          {/* <PostWidget /> */}
+          {/* <Categories categories='' slug=''/> */}
         </div>
       </div>
     </>

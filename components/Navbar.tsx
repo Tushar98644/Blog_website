@@ -3,18 +3,6 @@
 import Link from "next/link";
 import Categories from "./Categories";
 
-const categories = [
-    {
-        id: 1,
-        name: "Javascript",
-        slug: "javascript"
-    },
-    {
-        id: 2,
-        name: "React",
-        slug: "react"
-    },
-];
 
 const Navbar = () => {
     return (
@@ -25,11 +13,7 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="flex flex-row gap-3 ml-8 flex-1 mr-8 justify-center text-white text-xl font-semibold">
-                {categories.map((category, index) => (
-                    <Link href={`/category/${category.slug}`} key={category.id}>
-                        <Categories name={category.name} key={category.id} />
-                    </Link>
-                ))}
+              categories
             </div>
         </div>
     );
