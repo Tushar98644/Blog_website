@@ -1,0 +1,42 @@
+name: Dependabot Auto Merge
+
+on:
+  pull_request:
+
+jobs:
+  check-runner:
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+    steps:
+      - name: Wait for checks
+        uses: lewagon/wait-on-check-action@v1.1.1
+        with:
+          ref: "${{ github.event.pull_request.head.sha }}"
+          check-name: "build"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 60
+          
+  merge:
+    needs: check-runner
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge PR
+        uses: pascalgn/automerge-action@v0.14.3
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_LABELS: "automerge,!wip"
+          MERGE_METHOD: "squash"
+          MERGE_COMMIT_MESSAGE: "Automatic merge of PR ${{ github.event.pull_request.number }}"
+
+      - name: Add comment
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const issueComment = {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: 'This PR was automatically merged by the admin.'
+            };
+            github.rest.issues.createComment(issueComment);
