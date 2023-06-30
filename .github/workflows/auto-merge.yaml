@@ -7,8 +7,6 @@ on:
       - synchronize
     branches:
       - master
-    paths:
-      - '**/package.json'
 
 jobs:
   auto-approve-and-merge:
