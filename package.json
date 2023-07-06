@@ -20,7 +20,7 @@
     "html-react-parser": "^4.0.0",
     "moment": "^2.29.4",
     "next": "13.4.8",
-    "postcss": "8.4.24",
+    "postcss": "8.4.25",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-multi-carousel": "^2.8.4",
